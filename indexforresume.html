@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fairooz Siddiquee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f4efe6;
+  --parchment: #e8dfc8;
+  --warm-white: #faf7f2;
+  --tan: #c9aa80;
+  --brown-lt: #a07848;
+  --brown: #7a5530;
+  --brown-dk: #4e3018;
+  --espresso: #2c1a09;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: #f4efe6;
+  color: #2c1a09;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* TOP BAR */
+.top-bar {
+  height: 5px;
+  background: linear-gradient(90deg, #4e3018, #7a5530, #a07848, #c9aa80, #a07848, #7a5530, #4e3018);
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(244,239,230,0.96);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #c9aa80;
+  box-shadow: 0 2px 10px rgba(44,26,9,0.08);
+}
+.nav-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 58px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; font-weight: 700;
+  color: #4e3018; letter-spacing: 0.04em;
+}
+.nav-links { list-style: none; display: flex; gap: 2rem; }
+.nav-links a {
+  font-family: 'Lora', serif; font-size: 0.88rem;
+  color: #4e3018; text-decoration: none;
+  letter-spacing: 0.04em; position: relative; padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -2px; left: 0;
+  width: 0; height: 1.5px; background: #7a5530;
+  transition: width 0.25s ease;
+}
+.nav-links a:hover { color: #7a5530; }
+.nav-links a:hover::after { width: 100%; }
+.nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; color: #4e3018; cursor: pointer; }
+
+/* HERO */
+.hero {
+  max-width: 1080px; margin: 0 auto;
+  padding: 6rem 2rem 5rem;
+  border-bottom: 1px solid #c9aa80;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 700; line-height: 1.05;
+  color: #2c1a09; letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+.hero-name span { color: #7a5530; }
+.hero-tagline {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 1.15rem; color: #4e3018;
+  margin-bottom: 1.1rem;
+}
+.hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.hero-tags span {
+  background: #e8dfc8; border: 1px solid #c9aa80;
+  color: #4e3018; font-size: 0.8rem;
+  padding: 0.28rem 0.75rem; border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+.hero-cta {
+  display: inline-block;
+  background: #4e3018; color: #f4efe6;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem; font-weight: 600;
+  padding: 0.7rem 1.8rem; text-decoration: none;
+  border-radius: 3px; letter-spacing: 0.04em;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 14px rgba(44,26,9,0.2);
+}
+.hero-cta:hover { background: #2c1a09; transform: translateY(-2px); }
+
+/* DIVIDER */
+.divider {
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.2rem 2rem; color: #a07848; font-size: 1rem;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; max-width: 420px; height: 1px;
+  background: linear-gradient(90deg, transparent, #c9aa80);
+}
+.divider::after { background: linear-gradient(90deg, #c9aa80, transparent); }
+.divider span { margin: 0 1rem; }
+
+/* SECTIONS */
+.section { padding: 4.5rem 2rem; }
+.container { max-width: 1080px; margin: 0 auto; }
+.two-col {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3.5rem; align-items: start;
+}
+.sec-label {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 0.82rem; color: #a07848;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.sec-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  color: #2c1a09; line-height: 1.15;
+}
+.sec-header { margin-bottom: 2.5rem; }
+
+/* ABOUT */
+.about-text { color: #2c1a09; margin-bottom: 1.1rem; font-size: 1rem; }
+.about-chips {
+  display: flex; flex-wrap: wrap; gap: 0.75rem;
+  margin-top: 1.75rem; padding: 1.25rem 1.5rem;
+  background: #e8dfc8; border-left: 4px solid #7a5530;
+  border-radius: 2px;
+}
+.about-chips span { font-size: 0.9rem; color: #4e3018; }
+
+/* EXPERIENCE */
+.exp-bg { background-color: #faf7f2; }
+.timeline { position: relative; }
+.timeline::before {
+  content: ''; position: absolute;
+  left: 108px; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(180deg, #c9aa80, #a07848, #c9aa80);
+}
+.t-entry {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 2.25rem; margin-bottom: 2.75rem;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.t-entry.vis { opacity: 1; transform: translateY(0); }
+.t-meta { text-align: right; padding-right: 1.25rem; position: relative; }
+.t-date {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 0.8rem; color: #a07848; line-height: 1.4; display: block;
+}
+.t-dot {
+  position: absolute; right: -7px; top: 4px;
+  width: 12px; height: 12px;
+  background: #7a5530; border: 2px solid #f4efe6;
+  border-radius: 50%; box-shadow: 0 0 0 2px #a07848;
+}
+.t-card {
+  background: #f4efe6; border: 1px solid #c9aa80;
+  border-radius: 4px; padding: 1.4rem 1.6rem;
+  box-shadow: 0 2px 10px rgba(44,26,9,0.08);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.t-card:hover { box-shadow: 0 6px 22px rgba(44,26,9,0.15); transform: translateY(-2px); }
+.t-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; font-weight: 700;
+  color: #2c1a09; margin-bottom: 0.2rem;
+}
+.t-org {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 0.88rem; color: #7a5530; margin-bottom: 0.8rem;
+}
+.t-card ul { padding-left: 1.1rem; color: #2c1a09; font-size: 0.93rem; }
+.t-card li { margin-bottom: 0.45rem; }
+
+/* PROJECTS */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 1.75rem;
+}
+.proj-card {
+  background: #faf7f2; border: 1px solid #c9aa80;
+  border-radius: 4px; overflow: hidden;
+  box-shadow: 0 3px 14px rgba(44,26,9,0.09);
+  opacity: 0; transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
+}
+.proj-card.vis { opacity: 1; transform: translateY(0); }
+.proj-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(44,26,9,0.17); }
+.proj-accent { height: 5px; background: linear-gradient(90deg, #7a5530, #a07848); }
+.proj-card.alt .proj-accent { background: linear-gradient(90deg, #4e3018, #7a5530); }
+.proj-body { padding: 1.6rem; }
+.proj-tag {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 0.78rem; color: #a07848; margin-bottom: 0.45rem;
+}
+.proj-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; font-weight: 700;
+  color: #2c1a09; margin-bottom: 0.7rem;
+}
+.proj-body p { font-size: 0.93rem; color: #2c1a09; line-height: 1.7; margin-bottom: 1.1rem; }
+.proj-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.proj-tech span {
+  background: #e8dfc8; border: 1px solid #c9aa80;
+  color: #4e3018; font-size: 0.75rem;
+  padding: 0.2rem 0.6rem; border-radius: 2px;
+}
+
+/* SKILLS */
+.skill-bg { background-color: #faf7f2; }
+.skill-group { margin-bottom: 1.75rem; }
+.skill-group h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.98rem; font-weight: 600; color: #4e3018;
+  margin-bottom: 0.65rem; padding-bottom: 0.3rem;
+  border-bottom: 1px solid #c9aa80;
+}
+.skill-list { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.skill-list span {
+  background: #e8dfc8; border: 1px solid #c9aa80;
+  color: #2c1a09; font-size: 0.84rem;
+  padding: 0.3rem 0.85rem; border-radius: 3px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.skill-list span:hover { background: #c9aa80; border-color: #a07848; }
+
+/* CONTACT */
+.contact-inner { text-align: center; }
+.contact-inner .sec-label, .contact-inner .sec-heading { text-align: center; }
+.contact-inner .sec-heading { margin-bottom: 0.75rem; }
+.contact-sub {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 1rem; color: #4e3018; margin-bottom: 2.25rem;
+}
+.contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+.contact-item {
+  display: flex; align-items: center; gap: 0.65rem;
+  text-decoration: none; color: #4e3018;
+  background: #e8dfc8; border: 1px solid #c9aa80;
+  padding: 0.7rem 1.4rem; border-radius: 3px;
+  font-size: 0.92rem;
+  box-shadow: 0 2px 8px rgba(44,26,9,0.08);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.contact-item:hover { background: #4e3018; color: #f4efe6; transform: translateY(-2px); }
+
+/* FOOTER */
+footer {
+  background: #2c1a09; color: #c9aa80;
+  padding: 1.75rem 2rem; text-align: center;
+  font-family: 'Lora', serif; font-style: italic; font-size: 0.88rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .two-col { grid-template-columns: 1fr; gap: 1.25rem; }
+  .timeline::before { display: none; }
+  .t-entry { grid-template-columns: 1fr; gap: 0.4rem; }
+  .t-meta { text-align: left; padding-right: 0; }
+  .t-dot { display: none; }
+  .nav-links {
+    display: none; flex-direction: column; gap: 0.75rem;
+    position: absolute; top: 58px; left: 0; right: 0;
+    background: #f4efe6; padding: 1.25rem 2rem;
+    border-bottom: 1px solid #c9aa80; z-index: 99;
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+  .nav-inner { position: relative; }
+}
+@media (max-width: 480px) {
+  .hero-name { font-size: 2.5rem; }
+  .section { padding: 3rem 1.25rem; }
+  .contact-links { flex-direction: column; align-items: stretch; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Fairooz Siddiquee</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1 class="hero-name">Fairooz<br/><span>Siddiquee</span></h1>
+  <p class="hero-tagline">Builder. Teacher. Problem-solver.</p>
+  <div class="hero-tags">
+    <span>NLP</span><span>Python</span><span>Machine Learning</span><span>Data Analysis</span>
+  </div>
+  <a href="#about" class="hero-cta">View My Work ↓</a>
+</header>
+
+<div class="divider"><span>✦</span></div>
+
+<!-- About -->
+<section id="about" class="section">
+  <div class="container two-col">
+    <div>
+      <p class="sec-label">About</p>
+      <h2 class="sec-heading">About Me</h2>
+    </div>
+    <div>
+      <p class="about-text">
+        I'm a Computer Science student at Long Island University – Brooklyn, on a Presidential Scholarship, with a passion for building tools that make a real difference. My work spans <strong>natural language processing</strong>, teaching, and community leadership — three things that share one thread: helping people understand complex things more clearly.
+      </p>
+      <p class="about-text">
+        Before university, I spent years leading community projects in Bangladesh, teaching mathematics, and coaching students through debate and theatre. I bring that same energy to every line of code I write.
+      </p>
+      <div class="about-chips">
+        <span>📍 Brooklyn, NY</span>
+        <span>🎓 B.S. Computer Science, 2027</span>
+        <span>🏆 Presidential Scholar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>✦</span></div>
+
+<!-- Experience -->
+<section id="experience" class="section exp-bg">
+  <div class="container">
+    <div class="sec-header">
+      <p class="sec-label">Experience</p>
+      <h2 class="sec-heading">Where I've Worked</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="t-entry">
+        <div class="t-meta">
+          <span class="t-date">Jan 2022 –<br/>Dec 2022</span>
+          <span class="t-dot"></span>
+        </div>
+        <div class="t-card">
+          <h3>Mathematics Teacher</h3>
+          <p class="t-org">Al Hidaayah International School</p>
+          <ul>
+            <li>Supported mathematics instruction for 90 students, contributing to a <strong>25% increase in test scores</strong>, 43% rise in assignment completion, and 40% improvement in attendance.</li>
+            <li>Co-designed 4 instructional workbooks and digital lesson materials for diverse learning styles.</li>
+            <li>Provided weekly 1-on-1 support for 15 students, collaborating with faculty through biweekly feedback sessions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-entry">
+        <div class="t-meta">
+          <span class="t-date">Mar 2020 –<br/>Dec 2022</span>
+          <span class="t-dot"></span>
+        </div>
+        <div class="t-card">
+          <h3>Project Leader</h3>
+          <p class="t-org">Kritoggo Foundation Bangladesh</p>
+          <ul>
+            <li>Led 2 independent community projects as sole city representative, achieving a <strong>53% increase in community outreach</strong> and launching ~3 weeks ahead of schedule.</li>
+            <li>Recruited and trained 8 volunteers, streamlining coordination through structured workflows.</li>
+            <li>Produced donor-facing materials contributing to a <strong>24% increase in donations</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-entry">
+        <div class="t-meta">
+          <span class="t-date">Jan 2017 –<br/>Jan 2019</span>
+          <span class="t-dot"></span>
+        </div>
+        <div class="t-card">
+          <h3>House Captain &amp; Debate/Theatre</h3>
+          <p class="t-org">Al Hidaayah International School</p>
+          <ul>
+            <li>Led a house of ~200 students, representing peers in school-wide leadership forums.</li>
+            <li>Increased debate and theatre participation by <strong>35%</strong> through mentorship and coordinated initiatives.</li>
+            <li>Co-founded the Theatre Club, led 6+ productions, increasing visibility by 26%.</li>
+            <li>Competed in 4–5 parliamentary debates, winning one and placing second in a regional inter-school event.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>✦</span></div>
+
+<!-- Projects -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="sec-header">
+      <p class="sec-label">Projects</p>
+      <h2 class="sec-heading">What I've Built</h2>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-accent"></div>
+        <div class="proj-body">
+          <p class="proj-tag">NLP · Individual · Dec 2025</p>
+          <h3>AI Writing Coach</h3>
+          <p>An end-to-end AI writing coach built using classical NLP models — Naive Bayes, SVM, and Logistic Regression — with TF-IDF vectorization and rule-based feedback (fully API-free). Achieved ~70% F1-score through rigorous model evaluation and confusion-matrix analysis.</p>
+          <div class="proj-tech">
+            <span>Python</span><span>scikit-learn</span><span>TF-IDF</span><span>SVM</span><span>Naive Bayes</span><span>Logistic Regression</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card alt">
+        <div class="proj-accent"></div>
+        <div class="proj-body">
+          <p class="proj-tag">FinTech · Group Project · In Progress</p>
+          <h3>Haven — Budget Tracker</h3>
+          <p>A student-focused budgeting app built with a small team, designed to help students take control of their finances. Haven simplifies expense tracking, income logging, and financial goal-setting for the realities of student life.</p>
+          <div class="proj-tech">
+            <span>Group Project</span><span>Budgeting</span><span>Student Finance</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>✦</span></div>
+
+<!-- Skills -->
+<section id="skills" class="section skill-bg">
+  <div class="container two-col">
+    <div>
+      <p class="sec-label">Skills</p>
+      <h2 class="sec-heading">What I Know</h2>
+    </div>
+    <div>
+      <div class="skill-group">
+        <h4>Languages &amp; Tools</h4>
+        <div class="skill-list">
+          <span>Python</span><span>SQL</span><span>Excel</span><span>Google Workspace</span><span>Canva</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Machine Learning &amp; NLP</h4>
+        <div class="skill-list">
+          <span>NLP</span><span>TF-IDF</span><span>scikit-learn</span><span>Naive Bayes</span><span>SVM</span><span>Logistic Regression</span><span>ML Evaluation</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Data &amp; Analysis</h4>
+        <div class="skill-list">
+          <span>Data Analysis</span><span>Confusion Matrix Analysis</span><span>Model Evaluation</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Soft Skills</h4>
+        <div class="skill-list">
+          <span>Teaching</span><span>Leadership</span><span>Public Speaking</span><span>Team Coordination</span><span>Community Outreach</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>✦</span></div>
+
+<!-- Contact -->
+<section id="contact" class="section">
+  <div class="container contact-inner">
+    <p class="sec-label">Contact</p>
+    <h2 class="sec-heading">Get in Touch</h2>
+    <p class="contact-sub">I'm always open to new conversations — whether it's a project, an opportunity, or just a hello.</p>
+    <div class="contact-links">
+      <a href="mailto:fairooz.siddiquee@my.liu.edu" class="contact-item">
+        <span>✉</span><span>fairooz.siddiquee@my.liu.edu</span>
+      </a>
+      <a href="https://linkedin.com" target="_blank" class="contact-item">
+        <span>in</span><span>LinkedIn</span>
+      </a>
+      <a href="tel:3477341310" class="contact-item">
+        <span>☎</span><span>(347) 734-1310</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Fairooz Siddiquee</p>
+</footer>
+
+<script>
+// Mobile nav toggle
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a =>
+  a.addEventListener('click', () => navLinks.classList.remove('open'))
+);
+
+// Scroll fade-in for timeline entries and project cards
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('vis');
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.t-entry, .proj-card').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
